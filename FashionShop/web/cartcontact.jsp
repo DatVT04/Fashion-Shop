@@ -549,9 +549,9 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-                                                       const API_PROVINCE = 'https://provinces.open-api.vn/api/?depth=1';
-                                                       const API_DISTRICT = 'https://provinces.open-api.vn/api/p/';
-                                                       const API_WARD = 'https://provinces.open-api.vn/api/d/';
+                                                       const API_PROVINCE = 'https://vapi.vnappmob.com/api/province/';
+                                                       const API_DISTRICT = 'https://vapi.vnappmob.com/api/province/district/';
+                                                       const API_WARD = 'https://vapi.vnappmob.com/api/province/ward/';
 
                                                        function updateShippingFee(fee) {
                                                            const subtotal = ${subtotal};

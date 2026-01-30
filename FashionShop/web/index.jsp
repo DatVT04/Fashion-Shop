@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Jan 27, 2025, 4:12:56 PM
-    Author     : nguye
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -11,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fashion Shop - Đang tải...</title>
+        <title>Fashion shop - Đang tải...</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
             body {
@@ -71,7 +65,7 @@
     </head>
     <body>
         <div class="loading-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/2503/2503508.png" alt="Fashion Shop Logo" class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/2503/2503508.png" alt="Fashion shop Logo" class="logo">
             <div class="spinner"></div>
             <h2>Fashion Shop</h2>
             <p class="redirect-text">Đang chuyển hướng đến trang chủ...</p>
