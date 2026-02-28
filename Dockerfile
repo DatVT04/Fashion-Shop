@@ -8,6 +8,7 @@ COPY FashionShop/ /app/
 
 # Build WAR mà không phụ thuộc NetBeans/Ant tasks (CopyLibs, ...).
 # Tomcat sẽ compile JSP ở runtime; ở đây chỉ cần compile Java sources và đóng gói WAR.
+# Use the Ant-generated build/web directory to get library jars such as iText.
 RUN set -eux; \
     mkdir -p /app/build/classes; \
     find /app/src/java -name "*.java" > /app/sources.txt; \
@@ -16,10 +17,11 @@ RUN set -eux; \
       -source 17 \
       -target 17 \
       -d /app/build/classes \
-      -classpath "/usr/local/tomcat/lib/*:/app/web/WEB-INF/lib/*" \
+      -classpath "/usr/local/tomcat/lib/*:/app/build/web/WEB-INF/lib/*" \
       @/app/sources.txt; \
     mkdir -p /app/build/war; \
-    cp -R /app/web/* /app/build/war/; \
+    # copy the web content from Ant build (contains compiled JSP, libs, etc.)
+    cp -R /app/build/web/* /app/build/war/; \
     mkdir -p /app/build/war/WEB-INF/classes; \
     cp -R /app/build/classes/* /app/build/war/WEB-INF/classes/; \
     mkdir -p /app/dist; \
