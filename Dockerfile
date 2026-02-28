@@ -3,7 +3,8 @@ FROM tomcat:10.1-jdk17-temurin AS build
 WORKDIR /app
 
 # Copy Java web project sources
-COPY Fashion-Shop/ /app/
+# note: workspace directory is named "FashionShop" (no hyphen)
+COPY FashionShop/ /app/
 
 # Build WAR mà không phụ thuộc NetBeans/Ant tasks (CopyLibs, ...).
 # Tomcat sẽ compile JSP ở runtime; ở đây chỉ cần compile Java sources và đóng gói WAR.
@@ -22,7 +23,7 @@ RUN set -eux; \
     mkdir -p /app/build/war/WEB-INF/classes; \
     cp -R /app/build/classes/* /app/build/war/WEB-INF/classes/; \
     mkdir -p /app/dist; \
-    (cd /app/build/war && jar -cf /app/dist/Fashion-Shop.war .)
+    (cd /app/build/war && jar -cf /app/dist/FashionShop.war .)
 
 #
 # Runtime stage: Tomcat
@@ -35,7 +36,7 @@ WORKDIR /usr/local/tomcat
 RUN rm -rf webapps/*
 
 # Copy file WAR đã build và deploy làm ROOT
-COPY --from=build /app/dist/Fashion-Shop.war webapps/ROOT.war
+COPY --from=build /app/dist/FashionShop.war webapps/ROOT.war
 
 EXPOSE 8080
 
